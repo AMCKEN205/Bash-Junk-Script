@@ -1,0 +1,48 @@
+.TH Junk 1 "October 2017"
+.SH NAME
+junk \- Send files to and manage the user's .junkdir directory.
+
+.SH SYNOPSIS
+.PP
+\fBjunk.sh\fR
+.PP
+\fBjunk.sh\fR [OPTIONS] [FILE(S)] 
+.PP
+\fBjunk.sh\fR [OPTIONS] [-r FILE(S)] 
+
+.SH DESCRIPTION
+\fI.junkdir\fR acts as a store for files no longer required by the user, this allows users to move files from regularly used directories without having to completely delete these files. \fBjunk\fR manages the users \fI.junkdir\fR.
+
+\fBjunk\fR has two modes of operation. When \fBjunk\fR is given no arguments a menu is displayed, allowing the user to select a function to execute though entering the number it corresponds with in the menu. \fBjunk\fR also allows users to pass in options to carry out different functions. 
+
+.SH OPTIONS
+.TP 8
+\fB-l\fR
+list contents of the users junk directory, along with each files size in bytes and filetype.
+.TP
+\fB-r \fIfiles\fR
+Recover files specified from \fB.junkdir\fR to the current directory.
+.TP
+\fB-d\fR
+Go through all files present within the \fB.junkdir\fR and interactively delete or ignore each file based on user input after prompt for each file.
+.TP
+\fB-t\fR
+Output each users \fB.junkdir\fR storage size then output the total size of all user \fB.junkdir\fR directories added together. If a \fB.junkdir\fR does not exist in a users directory text informing the user of this is output to the terminal. Additionally, if \fBjunk\fR is run as super user, \fB.junkdir\fR directories are automatically created wherever they are not present. However these new \fB.junkdir\fR directories storage sizes are not output and are not included in the total size output.
+.TP
+\fB-w\fR
+Execute watch script process in a seperate terminator terminal window. The watch script displays information about files that have been modified, created, deleted or recovered in the last 15 seconds every 15 seconds.
+.TP
+\fB-k\fR
+Kill any watch script processes currently running.
+.LP
+.SH FILES
+.PP
+/home/USER/bin/.filesDel.txt 
+.PP
+/home/USER/bin/.filesRec.txt 
+.PP
+Files used by the watch script to get information on files deleted and recovered, written to by \fBjunk delete\fR and \fBjunk recover\fR respectively.
+.SH BUGS
+When using the \fBjunk kill\fR function, processes matching the same name as the \fBwatch\fR script are also killed.
+.SH AUTHOR
+\fBName: Alexander McKenzie | Student ID: S1507940\fR

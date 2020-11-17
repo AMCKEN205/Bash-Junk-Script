@@ -1,0 +1,72 @@
+Junk(1)                     General Commands Manual                    Junk(1)
+
+
+
+NAME
+       junk - Send files to and manage the user's .junkdir directory.
+
+
+SYNOPSIS
+       junk.sh
+
+       junk.sh [OPTIONS] [FILE(S)]
+
+       junk.sh [OPTIONS] [-r FILE(S)]
+
+
+DESCRIPTION
+       .junkdir acts as a store for files no longer required by the user, this
+       allows users to move files from regularly used directories without hav‐
+       ing to completely delete these files. junk manages the users .junkdir.
+
+       junk has two modes of operation. When junk is given no arguments a menu
+       is displayed, allowing the user to select a function to execute  though
+       entering  the  number it corresponds with in the menu. junk also allows
+       users to pass in options to carry out different functions.
+
+
+OPTIONS
+       -l      list contents of the users  junk  directory,  along  with  each
+               files size in bytes and filetype.
+
+       -r files
+               Recover files specified from .junkdir to the current directory.
+
+       -d      Go  through  all files present within the .junkdir and interac‐
+               tively delete or ignore each file based  on  user  input  after
+               prompt for each file.
+
+       -t      Output  each  users .junkdir storage size then output the total
+               size of all user .junkdir  directories  added  together.  If  a
+               .junkdir does not exist in a users directory text informing the
+               user of this is output to the terminal. Additionally,  if  junk
+               is  run  as  super user, .junkdir directories are automatically
+               created wherever  they  are  not  present.  However  these  new
+               .junkdir  directories  storage sizes are not output and are not
+               included in the total size output.
+
+       -w      Execute watch script process in a seperate terminator  terminal
+               window.  The watch script displays information about files that
+               have been modified, created, deleted or recovered in  the  last
+               15 seconds every 15 seconds.
+
+       -k      Kill any watch script processes currently running.
+
+FILES
+       /home/USER/bin/.filesDel.txt
+
+       /home/USER/bin/.filesRec.txt
+
+       Files  used by the watch script to get information on files deleted and
+       recovered, written to by junk delete and junk recover respectively.
+
+BUGS
+       When using the junk kill function, processes matching the same name  as
+       the watch script are also killed.
+
+AUTHOR
+       Name: Alexander McKenzie | Student ID: S1507940
+
+
+
+                                 October 2017                          Junk(1)
